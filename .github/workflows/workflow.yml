@@ -1,4 +1,4 @@
-name: CI Workflows
+name: CI Workflow
 
 on:
   push:
@@ -9,8 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: python3.9-slim
-
+    container: python:3.9-slim
     steps:
       - name: checkout
         uses: actions/checkout@v3
@@ -27,4 +26,3 @@ jobs:
 
       - name: Executer les tests unitaires avec nose
         run: nosetests -v --with-spec --spec-color --with-coverage --cover-package=app
-
